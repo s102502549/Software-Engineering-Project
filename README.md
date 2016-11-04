@@ -12,7 +12,7 @@ Package: Collide
 		
 		Collider(Vertex center, float radius)
 		Collider(Vertex center , Vertex[] vertices)
-		
+		void rotate(float deg)		
 
 	abstract class CollidableObject implements Collidable
 		Collider collider		{get}
