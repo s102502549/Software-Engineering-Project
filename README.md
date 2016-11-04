@@ -17,7 +17,7 @@ Package: Collide
 	abstract class CollidableObject implements Collidable
 		Collider collider		{get}
 
-		CollidableObject()
+		CollidableObject(Collider collider)
 		abstract void onCollide(CollidableObject source)
 	
 	class Utils
@@ -32,6 +32,7 @@ Collider定義一個碰撞物件的形狀，目前支援圓形，及凸多邊形
 class CollidableObject  
 CollidableObject是個抽象類別，所有需要碰撞的物件都要繼承此類別，並且實作碰撞發生時會呼叫的onCollide方法  
 
+
 class Utils  
-Utils是個算法類別，目前僅提供calculateCollide，calculateCollide會逐一地將others裡的object與myself檢查碰撞，若有碰撞，會呼叫各自的onCollide方法
+Utils是個算法類別calculateCollide會逐一地將others裡的object與myself檢查碰撞，若有碰撞，會呼叫各自的onCollide方法
 
