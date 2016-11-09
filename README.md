@@ -36,8 +36,6 @@
 	- require EntriesManager.getCollideObjects()
 
 #### Usage
-define a Collider in CollideObject's field and initial it in `CollideObject()`
+define a Collider in CollideObject's field and initial it in `CollideObject()`using `new CircleCollider(int radius)`or `new CircleCollider(int leftTopX, int leftTopY, rightBottomX, rightBottomY)`.
 
-using `new CircleCollider(int radius)`or `new CircleCollider(int leftTopX, int leftTopY, rightBottomX, rightBottomY)`
-
-to calculate collide using `Utils.calculateCollide(EntriesManager.getCollideObjects())`
+To calculate collide using `Utils.calculateCollide(EntriesManager.getCollideObjects())`
