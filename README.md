@@ -1,5 +1,5 @@
 ## 碰撞架構
-### `interface Collider`
+### `interface ICollider`
 
 ### `class CircleCollider implements Collider`
 
