@@ -20,7 +20,7 @@
 	- 一個方形包含兩個點，左上與右下，紀錄的值為與中心點的差值
 
 .method
-- `CircleCollider(int leftTopX, int leftTopY, rightBottomX, rightBottomY)`
+- `RectangleCollider(int leftTopX, int leftTopY, rightBottomX, rightBottomY)`
 - `public int getleftTopX()`
 - `public int getleftTopY()`
 - `public int getrightBottomX()`
@@ -36,6 +36,6 @@
 	- require EntriesManager.getCollideObjects()
 
 #### Usage
-Define a Collider in CollideObject's field and initial it in `CollideObject()`using `new CircleCollider(int radius)`or `new CircleCollider(int leftTopX, int leftTopY, rightBottomX, rightBottomY)`.
+Define a Collider in CollideObject's field and initial it in `CollideObject()`using `new CircleCollider(int radius)`or `new RectangleCollider(int leftTopX, int leftTopY, rightBottomX, rightBottomY)`.
 
 To calculate collide using `Utils.calculateCollide(EntriesManager.getCollideObjects())`
