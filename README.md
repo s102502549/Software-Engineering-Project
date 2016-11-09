@@ -1,7 +1,7 @@
 ## 碰撞架構
 ### `interface ICollider`
 
-### `class CircleCollider implements Collider`
+### `class CircleCollider implements ICollider`
 
 .field
 - `private int radius`
@@ -10,7 +10,7 @@
 - `CircleCollider(int radius)`
 - `public int getRadius()`
 
-### `class RectangleCollider implements Collider`
+### `class RectangleCollider implements ICollider`
 
 .field
 - `private int leftTopX`
