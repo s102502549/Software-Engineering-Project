@@ -1,38 +1,43 @@
-# 碰撞架構
+## 碰撞架構
+### `interface Collider`
 
-Package: Collide  
+### `class CircleCollider implements Collider`
 
-	interface Collidable
-		void onCollide(CollidableObject source)
+.field
+- `private int radius`
 
-	class Collider
-		Vertex center	{get, set}
-		float radius		{get, set}
-		Vertex[] vertices		{get, set}
-		
-		Collider(Vertex center, float radius)
-		Collider(Vertex center , Vertex[] vertices)
-		void rotate(float deg)		
+.method
+- `CircleCollider(int radius)`
+- `public int getRadius()`
 
-	abstract class CollidableObject implements Collidable
-		Collider collider		{get}
+### `class RectangleCollider implements Collider`
 
-		CollidableObject(Collider collider)
-		abstract void onCollide(CollidableObject source)
-	
-	class Utils
-		boolean checkCollide(CollidableObject a, CollidableObject b)
-		void calculateCollide(CollidableObject myself, CollidableObject[] others)
+.field
+- `private int leftTopX`
+- `private int leftTopY`
+- `private int rightBottomX`
+- `private int rightBottomY`
+	- 一個方形包含兩個點，左上與右下，紀錄的值為與中心點的差值
+
+.method
+- `CircleCollider(int leftTopX, int leftTopY, rightBottomX, rightBottomY)`
+- `public int getleftTopX()`
+- `public int getleftTopY()`
+- `public int getrightBottomX()`
+- `public int getrightBottomY()`
+
+### `class Utils`
 
 
-### 說明  
-class Collider  
-Collider定義一個碰撞物件的形狀，目前支援圓形，及凸多邊形，需要注意的是vertices是相對於center的座標，例如一個三角形，頂點為(0,1), (-1,0), (1,0)，center假設是(0.5,0.5) 則vertices應為(-0.5,0.5),(-1.5,-0.5),(0.5,-0.5)，圓形的center必須是圓心，多邊形的center則像是一個參考點，可以任意定  
+.method
+- `public static void calculateCollide(CollideObject[] CollideObjects)`
+	- require CollideObject.getPosition()
+	- require CollideObject.onCollide()
+	- require EntriesManager.getCollideObjects()
 
-class CollidableObject  
-CollidableObject是個抽象類別，所有需要碰撞的物件都要繼承此類別，並且實作碰撞發生時會呼叫的onCollide方法  
-目前限制每個CollidableObject只會有一個Collider
+#### Usage
+define a Collider in CollideObject's field and initial it in `CollideObject()`
 
-class Utils  
-Utils是個算法類別calculateCollide會逐一地將others裡的object與myself檢查碰撞，若有碰撞，會呼叫各自的onCollide方法
+using `new CircleCollider(int radius)`or `new CircleCollider(int leftTopX, int leftTopY, rightBottomX, rightBottomY)`
 
+to calculate collide using `Utils.calculateCollide(EntriesManager.getCollideObjects())`
